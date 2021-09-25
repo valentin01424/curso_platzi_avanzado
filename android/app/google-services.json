@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1077557080071",
+    "project_id": "platzicursoavanzadobloc",
+    "storage_bucket": "platzicursoavanzadobloc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077557080071:android:f2f8f1ec4ee0714b78faa2",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_avanzado2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077557080071-0tkc6u0j91br48e2f3lm8bqe3bp98hec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_application_avanzado2",
+            "certificate_hash": "e46a583698345048e0e4f3ac9a6c3c2132a7d1b1"
+          }
+        },
+        {
+          "client_id": "1077557080071-r58am2iiaunaqs7e3kj5bg178v9mm5fo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdn63F1Gn9xs-I5_vJv7dAfVLOE56lukI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077557080071-r58am2iiaunaqs7e3kj5bg178v9mm5fo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
