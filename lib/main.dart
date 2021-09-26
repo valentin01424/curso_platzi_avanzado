@@ -6,6 +6,7 @@ import 'platzi_trips_cupertino.dart';
 
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:platzi_trips_app/user/bloc/bloc_user.dart';
+import 'package:platzi_trips_app/user/ui/screens/sigin_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
     return  BlocProvider(
       child: MaterialApp(
         title: "flutter bloc curso",
-        home: PlatziTripsCupertino(),
+       // home: PlatziTripsCupertino(),
+       home: SignInScreen(),
       ), 
       bloc: UserBLoc());
   }
