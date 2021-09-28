@@ -3,14 +3,20 @@ import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:platzi_trips_app/user/repository/auth_repository.dart';
 class UserBLoc implements Bloc{
  
-  // ignore: non_constant_identifier_names
-  final _auth_repository = AuthRepository();
+  
+  final authRepository = AuthRepository();
  
+  //flujo de datos Streams
+  //stream - firebase
+  Stream<User> streamFirebase = FirebaseAuth.instance.authStateChanges();
+  Stream<User> get authStatus => streamFirebase;
+
+
+
  //casos de uso
  // signin App Google
- 
 Future<UserCredential> signIn(){
-  return _auth_repository.signInFirebase();
+  return authRepository.signInFirebase();
 
  }
  

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:platzi_trips_app/platzi_trips_cupertino.dart';
 import 'package:platzi_trips_app/user/bloc/bloc_user.dart';
 import 'package:platzi_trips_app/widgets/gradient_back.dart';
 import 'package:platzi_trips_app/widgets/button_green.dart';
@@ -13,13 +14,28 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
  UserBLoc userBLoc;
- 
+  AsyncSnapshot snapshot;
+  double screenWidth; 
   @override
   Widget build(BuildContext context) {
 
     userBLoc = BlocProvider.of(context);
 
-    return sigInGoogleUI();
+    return _stateSession();
+  }
+
+  Widget _stateSession(){
+    return StreamBuilder(
+      stream: userBLoc.authStatus,
+      builder: (BuildContext context, AsyncSnapshot snapshot){
+       if (!snapshot.hasData || snapshot.hasError) {
+         return sigInGoogleUI();
+         
+       }else{
+         return PlatziTripsCupertino();
+       }           
+      },
+      );
   }
 
   Widget sigInGoogleUI(){
@@ -42,7 +58,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
             ButtonGreen(text: "Iniciar con Google", 
             onPressed: (){
-            userBLoc.signIn().then((UserCredential user) => print("el usario es ${user.user.displayName}"));
+            userBLoc.signIn();
 
             },
             width: 300,
