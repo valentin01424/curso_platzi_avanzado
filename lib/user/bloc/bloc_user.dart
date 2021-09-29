@@ -20,6 +20,10 @@ Future<UserCredential> signIn(){
 
  }
  
+ signOut(){
+   authRepository.signOut();
+
+ }
  
   @override
   void dispose() {
