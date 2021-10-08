@@ -13,15 +13,16 @@ environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
 
 dependencies:
+  cloud_firestore: ^2.5.3
   cupertino_icons: ^0.1.2
+  firebase_auth: null
+  firebase_core: ^1.6.0
+  firebase_storage: ^10.0.3
   flutter:
     sdk: flutter
   generic_bloc_provider: ^1.1.0
-  firebase_auth:
-  google_sign_in:
-  firebase_storage: ^10.0.3
-  cloud_firestore: ^2.5.3
-  firebase_core: ^1.6.0
+  google_sign_in: null
+  image_picker: ^0.8.4+2
 
 dev_dependencies:
   flutter_test:

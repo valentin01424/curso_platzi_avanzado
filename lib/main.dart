@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'platzi_trips.dart';
 import 'platzi_trips_cupertino.dart';
 
@@ -10,9 +11,18 @@ import 'package:platzi_trips_app/user/ui/screens/sigin_screen.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 void main()async {
+  
    WidgetsFlutterBinding.ensureInitialized();
    await Firebase.initializeApp();
+    SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.light
+    )
+  );
+
    runApp(MyApp());
+   
 
 }
 
@@ -23,6 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  BlocProvider(
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: "flutter bloc curso",
        // home: PlatziTripsCupertino(),
        home: SignInScreen(),
@@ -102,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
