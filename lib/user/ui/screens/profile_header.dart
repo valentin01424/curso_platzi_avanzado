@@ -6,32 +6,46 @@ import '../widgets/user_info.dart';
 import '../widgets/button_bar.dart';
 
 class ProfileHeader extends StatelessWidget {
-  UserBLoc userBLoc;
+
   User user;
+  ProfileHeader(@required this.user);
     @override
   Widget build(BuildContext context) {
-   userBLoc = BlocProvider.of<UserBLoc>(context);
    
-   return StreamBuilder(
-     stream: userBLoc.streamFirebase,
-     // ignore: missing_return
-     builder: (BuildContext context, AsyncSnapshot snapshot){
-       
-                 switch (snapshot.connectionState) {
-                     case ConnectionState.waiting:
-                     case ConnectionState.none:
-                     return CircularProgressIndicator();
-                     case ConnectionState.active:
-                     case ConnectionState.done:
-                     return showProfileData(snapshot);
-
-                   }
-     },
+   final title = Text(
+      'Profile',
+      style: TextStyle(
+          fontFamily: 'Lato',
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 30.0
+      ),
+    );
 
    
-   );
-   }
-  Widget showProfileData(AsyncSnapshot snapshot){
+  
+
+    return Container(
+      margin: EdgeInsets.only(
+          left: 20.0,
+          right: 20.0,
+          top: 50.0
+      ),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              title
+            ],
+          ),
+          UserInfo(user),
+          ButtonsBar()
+        ],
+      ),
+    );
+    
+    }
+    Widget showProfileData(AsyncSnapshot snapshot){
     if (!snapshot.hasData || snapshot.hasError) {
       print("no logeado");
       return  Container(
@@ -57,38 +71,35 @@ class ProfileHeader extends StatelessWidget {
       email: snapshot.data.email ,
       photoURL: snapshot.data.photoURL, 
       
-       );
+       ); 
+       final title = Text(
+        'Profile',
+        style: TextStyle(
+            fontFamily: 'Lato',
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 30.0
+        ),
+      );
 
-
-      final title = Text(
-      'Profile',
-      style: TextStyle(
-          fontFamily: 'Lato',
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 30.0
-      ),
-    );
-
-    return Container(
-      margin: EdgeInsets.only(
-          left: 20.0,
-          right: 20.0,
-          top: 50.0
-      ),
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              title
-            ],
-          ),
-          UserInfo(user),
-          ButtonsBar()
-        ],
-      ),
-    );
-    }
+      return Container(
+        margin: EdgeInsets.only(
+            left: 20.0,
+            right: 20.0,
+            top: 50.0
+        ),
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                title
+              ],
+            ),
+            UserInfo(user),
+            ButtonsBar()
+          ],
+        ),
+      );
   }
-  
-}
+  }
+  }

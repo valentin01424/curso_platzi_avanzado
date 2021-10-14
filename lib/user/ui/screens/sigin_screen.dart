@@ -68,6 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
              
             ButtonGreen(text: "Iniciar con Google", 
             onPressed: ()async{
+              userBLoc.signOut();
              final user = await userBLoc.signIn();
               
               userBLoc.updateUserData(Model.User(
